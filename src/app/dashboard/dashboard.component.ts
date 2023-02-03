@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 
 type Book = { title: string; description: string };
@@ -7,10 +7,12 @@ type Book = { title: string; description: string };
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   books: Book[] = [];
-  constructor(private bookService: DashboardService) {
-    bookService.getAllBooks().subscribe({
+  constructor(private bookService: DashboardService) {}
+
+  getBooks() {
+    this.bookService.getAllBooks().subscribe({
       next: (res: any) => {
         this.books = res.map((book: any) => {
           let tempBook: Book = {
@@ -22,4 +24,6 @@ export class DashboardComponent {
       },
     });
   }
+
+  ngOnInit() {}
 }

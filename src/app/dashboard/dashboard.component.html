@@ -1,6 +1,15 @@
-<h1>This is DashBoard</h1>
-<ul *ngFor="let book of books">
-  <li>
-    <h1>{{ book.title }}</h1>
-  </li>
-</ul>
+<app-navbar></app-navbar>
+<div class="container">
+  <h1>This is DashBoard</h1>
+  <button (click)="getBooks()" class="btn btn-dark">
+    <h4>Get All Books</h4>
+  </button>
+
+  <div class="row">
+    <div *ngFor="let book of books" class="col-4">
+      <div class="book p-4">
+        <h3>{{ book.title }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

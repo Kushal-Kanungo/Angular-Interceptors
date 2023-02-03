@@ -8,9 +8,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthInterceptor } from './auth.interceptor';
 import { AuthGuardService } from './services/guard/auth-guard.service';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderInterceptor } from './interceptor/loader.interceptor';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    LoaderComponent,
+    NavbarComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +30,11 @@ import { AuthGuardService } from './services/guard/auth-guard.service';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true,
     },
     AuthGuardService,
