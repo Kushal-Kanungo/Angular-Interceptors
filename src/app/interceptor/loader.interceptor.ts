@@ -18,7 +18,13 @@ export class LoaderInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     this.loaderService.show();
+    // document.body.classList.add('stop-scrolling');
 
-    return next.handle(request).pipe(finalize(() => this.loaderService.hide()));
+    return next.handle(request).pipe(
+      finalize(() => {
+        this.loaderService.hide();
+        // document.body.classList.remove('stop-scrolling');
+      })
+    );
   }
 }

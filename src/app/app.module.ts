@@ -11,6 +11,7 @@ import { AuthGuardService } from './services/guard/auth-guard.service';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderInterceptor } from './interceptor/loader.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    InfiniteScrollModule,
   ],
   providers: [
     {

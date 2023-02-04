@@ -11,4 +11,8 @@ export class DashboardService {
   getAllBooks(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:3000/books');
   }
+
+  getBooksPage(page: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:3000/books/page/${page}`);
+  }
 }
