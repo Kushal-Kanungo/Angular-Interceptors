@@ -16,29 +16,16 @@ export class DashboardComponent implements OnInit {
   books: Book[] = [];
   constructor(private bookService: DashboardService) {}
 
-  getBooks() {
-    this.bookService.getAllBooks().subscribe({
-      next: (res: any) => {
-        this.books = res.map((book: any) => {
-          let tempBook: Book = {
-            title: book.title,
-            description: book.description,
-          };
-          return tempBook;
-        });
-      },
-    });
-  }
-
-  onScroll(): void {
-    this.page += 1;
-    this.bookService.getBooksPage(this.page).subscribe({
+  getBooks(pageNo: number) {
+    this.bookService.getBooksPage(pageNo).subscribe({
       next: (res: any) => {
         let temp = res.map((book: any) => {
           let tempBook: Book = {
             title: book.title,
             description: book.description,
           };
+          console.log('second');
+
           return tempBook;
         });
         this.books = this.books.concat(temp);
@@ -46,5 +33,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  onScroll(): void {
+    this.page += 1;
+    this.getBooks(this.page);
+  }
+
+  ngOnInit() {
+    this.getBooks(this.page);
+  }
 }

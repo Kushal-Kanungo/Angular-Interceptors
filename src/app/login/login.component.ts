@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { LoaderService } from '../services/loader.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,13 @@ export class LoginComponent {
     password: new FormControl('1234'),
   });
 
-  constructor(private authService: AuthService, private router: Router) {}
+  errorVisible = false;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private loadinService: LoaderService
+  ) {}
 
   loginButtonHandler() {
     console.log(this.loginForm.value);
@@ -23,6 +31,9 @@ export class LoginComponent {
         console.log(res);
         localStorage.setItem('jwt_token', res.token);
         this.router.navigate(['/dashboard']);
+      },
+      error: () => {
+        this.errorVisible = true;
       },
     });
   }

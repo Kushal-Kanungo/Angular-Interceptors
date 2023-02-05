@@ -29,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           alert('You are not authorized. PLease login again');
           localStorage.clear();
-          this.router.navigate(['/login']);
+          this.router.navigate(['']);
         }
         return throwError(() => error);
       })

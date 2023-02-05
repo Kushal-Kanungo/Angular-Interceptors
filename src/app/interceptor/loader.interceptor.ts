@@ -17,12 +17,17 @@ export class LoaderInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.loaderService.show();
+    if (request.url == 'http://localhost:3000/users/login')
+      this.loaderService.show('login');
+    else this.loaderService.show('scroll');
+
     // document.body.classList.add('stop-scrolling');
 
     return next.handle(request).pipe(
       finalize(() => {
-        this.loaderService.hide();
+        if (request.url == 'http://localhost:3000/users/login')
+          this.loaderService.hide('login');
+        else this.loaderService.hide('scroll');
         // document.body.classList.remove('stop-scrolling');
       })
     );

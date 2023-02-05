@@ -1,9 +1,6 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container pt-5">
   <h1>This is DashBoard</h1>
-  <button (click)="getBooks()" class="btn btn-dark">
-    <h4>Get All Books</h4>
-  </button>
 
   <div
     class="row"
@@ -13,9 +10,15 @@
     [infiniteScrollThrottle]="throttle"
     (scrolled)="onScroll()"
   >
-    <div *ngFor="let book of books" class="col-4">
-      <div class="book p-4">
-        <h3>{{ book.title }}</h3>
+    <div *ngFor="let book of books" class="col-md-6 col-12 col-lg-4">
+      <div class="book p-4 rounded mt-5">
+        <img
+          src="https://cdn2.vectorstock.com/i/1000x1000/67/81/bookmark-icon-outline-book-mark-vector-42676781.jpg"
+          alt=""
+          srcset=""
+        />
+        <h1 class="text-warning">{{ book.description }}</h1>
+        <h3 class="my-4">{{ book.title }}</h3>
       </div>
     </div>
   </div>

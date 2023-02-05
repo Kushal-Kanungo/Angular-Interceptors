@@ -12,6 +12,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderInterceptor } from './interceptor/loader.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { LoginLoaderComponent } from './login-loader/login-loader.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     DashboardComponent,
     LoaderComponent,
     NavbarComponent,
+    LoginLoaderComponent,
   ],
   imports: [
     BrowserModule,
