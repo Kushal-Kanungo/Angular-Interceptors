@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { CanComponentDeactivate } from './dashboard/can-deactivate-guard.service';
 
 @Injectable({
   providedIn: 'root',

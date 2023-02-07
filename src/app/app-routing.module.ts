@@ -3,16 +3,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuardService } from './services/guard/auth-guard.service';
+import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    pathMatch: 'full',
+    redirectTo: '/login',
   },
   {
     path: 'dashboard',
     canActivate: [AuthGuardService],
+    canDeactivate: [CanDeactivateGuard],
     component: DashboardComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 

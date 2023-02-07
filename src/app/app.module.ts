@@ -13,6 +13,7 @@ import { LoaderInterceptor } from './interceptor/loader.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LoginLoaderComponent } from './login-loader/login-loader.component';
+import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { LoginLoaderComponent } from './login-loader/login-loader.component';
       multi: true,
     },
     AuthGuardService,
+    CanDeactivateGuard,
   ],
   bootstrap: [AppComponent],
 })
