@@ -14,6 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LoginLoaderComponent } from './login-loader/login-loader.component';
 import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
+import { MyFormComponent } from './my-form/my-form.component';
+import { DragDirective } from './dragDropFileUpload.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
     LoaderComponent,
     NavbarComponent,
     LoginLoaderComponent,
+    MyFormComponent,
+    DragDirective,
   ],
   imports: [
     BrowserModule,

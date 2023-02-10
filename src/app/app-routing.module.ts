@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuardService } from './services/guard/auth-guard.service';
 import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
+import { MyFormComponent } from './my-form/my-form.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'signup',
+    component: MyFormComponent,
   },
 ];
 
