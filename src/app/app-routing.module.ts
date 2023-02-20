@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuardService } from './services/guard/auth-guard.service';
 import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
 import { MyFormComponent } from './my-form/my-form.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,15 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     canDeactivate: [CanDeactivateGuard],
     component: DashboardComponent,
+  },
+  {
+    path: 'pagination',
+    redirectTo: 'pagination/1',
+  },
+  {
+    path: 'pagination/:page',
+    canActivate: [AuthGuardService],
+    component: PaginationComponent,
   },
   {
     path: 'login',

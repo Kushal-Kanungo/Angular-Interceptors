@@ -1,0 +1,19 @@
+<p>pagination works!</p>
+
+<table class="table table-striped-columns">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    <td>{{ book.title }}</td>
+    <td>{{ book.description }}</td>
+  </tr>
+</table>
+
+<p-paginator
+  [rows]="this.singlePageRows"
+  [totalRecords]="this.totalPages"
+  [rowsPerPageOptions]="[10, 20, 30]"
+  (onPageChange)="paginate($event)"
+></p-paginator>

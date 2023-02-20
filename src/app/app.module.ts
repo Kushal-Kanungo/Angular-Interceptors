@@ -16,6 +16,9 @@ import { LoginLoaderComponent } from './login-loader/login-loader.component';
 import { CanDeactivateGuard } from './dashboard/can-deactivate-guard.service';
 import { MyFormComponent } from './my-form/my-form.component';
 import { DragDirective } from './dragDropFileUpload.directive';
+import { PaginatorModule } from 'primeng/paginator';
+import { PaginationComponent } from './pagination/pagination.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,13 +30,16 @@ import { DragDirective } from './dragDropFileUpload.directive';
     LoginLoaderComponent,
     MyFormComponent,
     DragDirective,
+    PaginationComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     InfiniteScrollModule,
+    PaginatorModule,
   ],
   providers: [
     {

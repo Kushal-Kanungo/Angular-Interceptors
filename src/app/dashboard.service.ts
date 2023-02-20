@@ -34,4 +34,16 @@ export class DashboardService {
         })
       );
   }
+
+  getBooksPerPage(pageNo: number, pageSize: number) {
+    return this.http.get<any[]>(
+      `http://localhost:3000/books/page/${pageNo}/per/${pageSize}`
+    );
+  }
+
+  getTotalsPage(): Observable<{ total: number }> {
+    return this.http.get<{ total: number }>(
+      'http://localhost:3000/books/total'
+    );
+  }
 }
